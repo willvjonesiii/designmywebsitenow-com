@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design My Website Now &mdash; Conscious Web Design for Healers &amp; Energy Workers</title>
+<meta name="description" content="Sacred, intentional web design for Reiki practitioners, energy healers, somatic coaches, and spiritual teachers. Your website is your portal.">
+<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAIAB2AgAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAQAAAAEAgGAAAAH/P/YQAAAj1JREFUeJyNk11Ik2EYhq9vMzd1qzk3jTLxrxmun7lZqUEmE5Q6kE4stWXUeUbUYRCRR1EK1kERioUwJcQCIUShk5YoaxM3TTSR5fohcjMo3eb8OlDnJk56D9/n5nqf+36eV1AqlSJxjihLAkAILMWTIIlbAUSVGlGl3kmyAdhFyc1Oenu66O5o5W5jMRpplOjAeR5au2irz0GKnJKm5/Rab3E6KQIQSMszkbMwSEe/F/2Ndp5asiLtCSmZHD1h4uzVWgxaM42WUxiPF6BN2GJh2TvG0KtWHvT5MVYUkxxdDA7z9nM5TfcvkT8ywGQ4XgaSVHKyd/Pnl49QTCC/GbSOUmiW8abbRXD9OiE6jr01zfRXpZMnG+Vew3sCaGPYgQ9tXL6gxPuzgsoNewpNuiiq0tiTrSdXJRD668M7N48vCCFD6VrEk7MU6GR8d3lYFAGZFp1Ogc9m3wBsP6qQoWwN4LRtWxf8Cwg7LdJqxv41cz+88SRIkJ+hxTHEnaJEMiwvmXM/okoup7rNTvuV3PWUEzn3ZALvSDPlKYlUtth5d1tPAiAh4MI+mUGRIZNjBg1ffQcx6gsxHl5hamKe1chbIoHUaq7XZiGN6UD047R7OHSyhrL8aV70+DGYKzDt+4R7JnqQYWZ7XxOqv0ZZcjSAFWYc44RL66gJOhiwuUm7WMcRj5Opxdh4xG99PLaZaDCnIGwCIDDuYEKhZnl8jC9uJ9NJKlZcTjzhLYmJS4w86+Tj6ub+7TiF//nO/wBDAsO17wx14wAAAABJRU5ErkJggg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0c0a07;--dark:#1a1614;--gold:#c8923a;--cream:#f5f0e8;--mid:rgba(245,240,232,0.52);--faint:rgba(245,240,232,0.18);--border:rgba(245,240,232,0.09);--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--ink);color:var(--cream);overflow-x:hidden;cursor:none}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--sans);cursor:none}
+.cursor-dot{position:fixed;top:0;left:0;z-index:9999;pointer-events:none;width:8px;height:8px;border-radius:50%;background:var(--gold);transform:translate(-50%,-50%);transition:width .2s,height .2s}
+.cursor-ring{position:fixed;top:0;left:0;z-index:9998;pointer-events:none;width:36px;height:36px;border-radius:50%;border:1px solid rgba(200,146,58,.55);transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .35s}
+.cursor-dot.ring-hover{width:14px;height:14px}
+.cursor-ring.ring-hover{width:56px;height:56px;border-color:rgba(200,146,58,.9)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:28px 60px;transition:padding .4s,background .4s,backdrop-filter .4s}
+nav.scrolled{padding:16px 60px;background:rgba(12,10,7,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.05em;color:var(--cream)}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);transition:color .25s}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{font-size:10px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:11px 26px;transition:all .3s;white-space:nowrap;flex-shrink:0;display:inline-block}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;cursor:none}
+.nav-hamburger span{display:block;width:24px;height:1px;background:var(--cream);transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:199;background:rgba(12,10,7,.97);backdrop-filter:blur(14px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mm-link{font-family:var(--serif);font-size:clamp(32px,8vw,52px);font-weight:400;color:var(--cream);transition:color .25s}
+.mm-link:hover,.mm-cta{color:var(--gold)}
+.eyebrow{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0}
+.section-h2{font-family:var(--serif);font-size:clamp(42px,5vw,70px);font-weight:400;line-height:1.1;color:var(--cream)}
+.section-h2 em{font-style:italic;color:var(--gold)}
+.btn-primary{font-size:11px;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:16px 36px;font-weight:500;transition:all .3s;white-space:nowrap;flex-shrink:0;display:inline-block}
+.btn-primary:hover{background:var(--cream)}
+.btn-ghost{font-size:11px;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(245,240,232,.38);color:var(--cream);padding:16px 36px;transition:all .3s;white-space:nowrap;flex-shrink:0;display:inline-block}
+.btn-ghost:hover{border-color:var(--cream)}
+.text-link{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:8px;transition:gap .3s}
+.text-link:hover{gap:14px}
+.hero{min-height:100dvh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/854f5a_915683430c4943b5a01597c86059384d~mv2.jpg');background-size:cover;background-position:center top;transform:scale(1.06);transition:transform 10s ease}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(12,10,7,.48) 0%,rgba(12,10,7,.35) 35%,rgba(12,10,7,.68) 75%,rgba(12,10,7,.97) 100%)}
+.hero-content{position:relative;z-index:2;max-width:920px;padding:0 28px}
+.hero-eyebrow{font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;display:flex;align-items:center;justify-content:center;gap:14px;animation:heroFadeUp 1s ease .3s both}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:var(--gold);opacity:.7}
+.hero-h1{font-family:var(--serif);font-size:clamp(54px,9vw,124px);font-weight:400;line-height:.97;color:var(--cream);margin-bottom:30px;animation:heroFadeUp 1s ease .5s both}
+.hero-h1 em{font-style:italic;color:var(--gold);display:block}
+.hero-sub{font-size:clamp(15px,1.6vw,18px);line-height:1.85;color:var(--mid);max-width:560px;margin:0 auto 48px;font-weight:300;animation:heroFadeUp 1s ease .7s both}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center;animation:heroFadeUp 1s ease .9s both}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:rgba(245,240,232,.3);animation:heroFadeUp 1s ease 1.1s both}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2.2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.ticker-wrap{overflow:hidden;background:var(--gold);padding:14px 0}
+.ticker-track{display:flex;animation:tickerScroll 38s linear infinite;width:max-content}
+.ticker-item{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);padding:0 36px;white-space:nowrap;font-weight:500}
+.ticker-sep{opacity:.45;margin-left:4px}
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.about-section{display:grid;grid-template-columns:1fr 1fr;min-height:90vh}
+.about-img{position:relative;overflow:hidden;background:var(--dark)}
+.about-img img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.88}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,var(--ink) 100%)}
+.about-text{padding:clamp(60px,8vw,110px) clamp(48px,6vw,88px);display:flex;flex-direction:column;justify-content:center;background:var(--ink)}
+.about-h2{font-family:var(--serif);font-size:clamp(34px,3.8vw,56px);font-weight:400;line-height:1.15;color:var(--cream);margin:20px 0 28px}
+.about-h2 em{font-style:italic;color:var(--gold)}
+.about-body{font-size:15px;line-height:1.88;color:var(--mid);margin-bottom:18px;font-weight:300}
+.about-body strong{color:var(--cream);font-weight:500}
+.about-pullquote{font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);font-style:italic;font-weight:300;color:var(--gold);border-left:2px solid var(--gold);padding-left:24px;margin:32px 0 36px;line-height:1.5}
+.approach-section{background:var(--dark);padding:clamp(80px,10vw,130px) clamp(40px,6vw,80px)}
+.section-header-center{text-align:center;margin-bottom:72px}
+.section-header-center .eyebrow{justify-content:center}
+.section-header-center .eyebrow::before{display:none}
+.section-sub{font-size:15px;line-height:1.82;color:var(--mid);max-width:580px;margin:18px auto 0;font-weight:300}
+.principles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px}
+.principle-card{background:rgba(245,240,232,.028);border:1px solid var(--border);padding:38px 36px;transition:background .35s,border-color .35s}
+.principle-card:hover{background:rgba(200,146,58,.06);border-color:rgba(200,146,58,.28)}
+.p-num{font-family:var(--serif);font-size:52px;font-weight:300;color:rgba(200,146,58,.28);line-height:1;margin-bottom:18px}
+.p-title{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--cream);margin-bottom:12px;line-height:1.3}
+.p-body{font-size:13px;line-height:1.85;color:var(--mid);font-weight:300}
+.portfolio-section{padding:clamp(80px,10vw,130px) clamp(40px,6vw,80px);background:var(--ink)}
+.section-header-split{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px;flex-wrap:wrap;gap:20px}
+.portfolio-note{font-size:12px;color:var(--faint);margin-bottom:44px;letter-spacing:.06em}
+.sub-label{font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--mid);margin-bottom:18px}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+.feat-card{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--dark);display:block}
+.feat-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94),opacity .4s;opacity:.72}
+.feat-card:hover img{transform:scale(1.07);opacity:.48}
+.feat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,10,7,.94) 0%,rgba(12,10,7,.15) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:32px;transition:background .4s}
+.feat-card:hover .feat-overlay{background:linear-gradient(to top,rgba(12,10,7,.98) 0%,rgba(12,10,7,.35) 55%)}
+.feat-tag{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.feat-name{font-family:var(--serif);font-size:clamp(22px,2.5vw,34px);font-weight:400;color:var(--cream);margin-bottom:14px;line-height:1.2}
+.feat-cta{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:8px;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.feat-card:hover .feat-cta{opacity:1;transform:none}
+.demo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.demo-card{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--dark);cursor:none}
+.demo-card img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .7s cubic-bezier(.25,.46,.45,.94),opacity .4s}
+.demo-card:hover img{transform:scale(1.08);opacity:.5}
+.demo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,10,7,.92) 0%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.demo-sector{font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.demo-name{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--cream);margin-bottom:8px;line-height:1.25}
+.demo-cta{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.demo-card:hover .demo-cta{opacity:1;transform:none}
+.testimonials-section{background:#140e09;padding:clamp(80px,10vw,130px) clamp(40px,6vw,80px)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
+.testi-card{background:rgba(200,146,58,.06);border:1px solid rgba(200,146,58,.13);padding:44px 36px}
+.testi-quotemark{font-family:var(--serif);font-size:64px;color:var(--gold);line-height:.8;margin-bottom:18px;opacity:.55}
+.testi-quote{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);font-style:italic;font-weight:300;line-height:1.65;color:var(--cream);margin-bottom:28px}
+.testi-attribution{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--border);padding-top:20px}
+.contact-section{background:var(--dark);padding:clamp(80px,10vw,130px) clamp(40px,6vw,80px)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-h2{font-family:var(--serif);font-size:clamp(38px,4.5vw,62px);font-weight:400;line-height:1.1;color:var(--cream);margin:20px 0}
+.contact-h2 em{font-style:italic;color:var(--gold)}
+.contact-sub{font-size:15px;line-height:1.82;color:var(--mid);margin-bottom:36px;font-weight:300}
+.contact-details{display:flex;flex-direction:column;gap:14px}
+.cd-item{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);font-size:13px}
+.cd-label{color:var(--gold);font-size:9px;letter-spacing:.3em;text-transform:uppercase;width:100px;flex-shrink:0;padding-top:2px}
+.cd-value{color:var(--mid)}
+.contact-form{display:flex;flex-direction:column;gap:18px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cf-group{display:flex;flex-direction:column;gap:8px}
+.cf-group label{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.cf-group input,.cf-group select,.cf-group textarea{background:rgba(245,240,232,.04);border:1px solid var(--border);color:var(--cream);font-family:var(--sans);font-size:14px;font-weight:300;padding:13px 16px;outline:none;transition:border-color .25s;-webkit-appearance:none}
+.cf-group input::placeholder,.cf-group textarea::placeholder{color:var(--faint)}
+.cf-group input:focus,.cf-group select:focus,.cf-group textarea:focus{border-color:var(--gold)}
+.cf-group select{cursor:none}
+.cf-group textarea{resize:vertical;min-height:120px}
+.cf-submit{font-size:11px;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--ink);border:none;padding:18px 40px;font-weight:500;transition:all .3s;align-self:flex-start;white-space:nowrap;flex-shrink:0}
+.cf-submit:hover{background:var(--cream)}
+.form-msg{font-size:13px;color:var(--gold);min-height:20px}
+footer{background:var(--ink);border-top:1px solid var(--border);border-radius:3rem 3rem 0 0;padding:clamp(60px,8vw,100px) clamp(40px,6vw,80px) 40px;margin-top:2px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--border)}
+.footer-brand-name{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--cream);margin-bottom:14px}
+.footer-brand-name span{color:var(--gold)}
+.footer-tagline{font-size:14px;line-height:1.75;color:var(--mid);max-width:300px;margin-bottom:28px;font-weight:300}
+.footer-email{font-size:13px;color:var(--gold);transition:color .25s}
+.footer-email:hover{color:var(--cream)}
+.footer-col-title{font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.footer-links{display:flex;flex-direction:column;gap:13px}
+.footer-links a{font-size:14px;color:var(--mid);transition:color .25s}
+.footer-links a:hover{color:var(--cream)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:rgba(245,240,232,.25);letter-spacing:.1em;flex-wrap:wrap;gap:12px}
+.lightbox-backdrop{position:fixed;inset:0;z-index:500;background:rgba(12,10,7,.94);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.lightbox-backdrop.open{opacity:1;pointer-events:all}
+.lightbox-window{width:90vw;max-width:1280px;height:86vh;background:var(--dark);border:1px solid var(--border);display:flex;flex-direction:column;transform:scale(.96) translateY(20px);transition:transform .42s cubic-bezier(.25,.46,.45,.94);overflow:hidden}
+.lightbox-backdrop.open .lightbox-window{transform:scale(1) translateY(0)}
+.lightbox-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--border);background:var(--ink);flex-shrink:0}
+.lb-title{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid)}
+.lb-actions{display:flex;align-items:center;gap:16px}
+.lb-open-link{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);transition:color .25s}
+.lb-open-link:hover{color:var(--cream)}
+.lb-close{width:30px;height:30px;border:1px solid var(--border);background:none;color:var(--mid);font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .25s;cursor:none}
+.lb-close:hover{border-color:var(--gold);color:var(--gold)}
+.lightbox-iframe{flex:1;width:100%;border:none}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.visible{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+@media(max-width:820px){nav{padding:20px 24px}nav.scrolled{padding:14px 24px}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.about-section{grid-template-columns:1fr}.about-img{height:65vw;max-height:380px}.about-img-overlay{background:linear-gradient(to bottom,transparent 50%,var(--ink) 100%)}.featured-grid{grid-template-columns:1fr}.feat-card{aspect-ratio:16/9}.feat-cta{opacity:1;transform:none}.demo-grid{grid-template-columns:repeat(2,1fr)}.demo-cta{opacity:1;transform:none}.testi-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr;gap:48px}.cf-row{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr;gap:40px}.lightbox-window{width:96vw;height:88vh}.principles-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.demo-grid{grid-template-columns:1fr}.hero-h1{font-size:clamp(44px,12vw,72px)}}
+</style>
+</head>
+<body>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav id="mainNav">
+  <a href="#" class="nav-logo">DMWN<span>&middot;</span></a>
+  <ul class="nav-links"><li><a href="#work">Work</a></li><li><a href="#approach">Approach</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="#contact" class="nav-cta">Book a Call</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work" class="mm-link">Work</a><a href="#approach" class="mm-link">Approach</a><a href="#about" class="mm-link">About</a><a href="#contact" class="mm-link mm-cta">Book a Call</a>
+</div>
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Conscious Web Design &middot; Healing Arts &middot; Energy Workers</div>
+    <h1 class="hero-h1">Your website is your<br><em>Sacred Portal.</em></h1>
+    <p class="hero-sub">I build digital sanctuaries for healers, coaches, and energy practitioners &mdash; spaces designed to resonate at the frequency of your work.</p>
+    <div class="hero-actions"><a href="#work" class="btn-primary">View My Work</a><a href="#contact" class="btn-ghost">Book a Call</a></div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Reiki Practitioners <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Energy Healers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Somatic Coaches <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Rose Priestesses <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Breathwork Teachers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Shamanic Guides <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Life Coaches <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Spiritual Teachers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Sound Healers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Yoga Teachers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Intuitive Guides <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Plant Medicine Facilitators <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Reiki Practitioners <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Energy Healers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Somatic Coaches <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Rose Priestesses <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Breathwork Teachers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Shamanic Guides <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Life Coaches <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Spiritual Teachers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Sound Healers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Yoga Teachers <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Intuitive Guides <span class="ticker-sep">&#10022;</span></span><span class="ticker-item">Plant Medicine Facilitators <span class="ticker-sep">&#10022;</span></span>
+  </div>
+</div>
+<section class="about-section" id="about">
+  <div class="about-img">
+    <img src="https://static.wixstatic.com/media/854f5a_915683430c4943b5a01597c86059384d~mv2.jpg" alt="Will Jones" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80'">
+    <div class="about-img-overlay"></div>
+  </div>
+  <div class="about-text">
+    <div class="eyebrow rv">Who I Am</div>
+    <h2 class="about-h2 rv rv-d1">Reiki-Attuned.<br><em>Design-Obsessed.</em></h2>
+    <p class="about-body rv rv-d2">I&rsquo;m <strong>Will Jones</strong> &mdash; a web designer who received his <strong>Usui Holy Fire Reiki I &amp; II certification</strong> and never looked at a website the same way again. That attunement cracked something open: an awareness of the energy that moves through all things, including the digital spaces we inhabit every day.</p>
+    <p class="about-body rv rv-d2">I specialize in building websites for those who do energy work &mdash; because I&rsquo;ve learned that <strong>websites carry energy in a unique way</strong>. They function as an energetic portal for the host. When the design is intentional, aligned, and clear, the right people find their way through it.</p>
+    <p class="about-body rv rv-d2">When I&rsquo;m building for a healer, I integrate the same energetic principles I carry from my own practice. Your site becomes a reflection of your frequency &mdash; not a business card, but a <strong>living, breathing extension of your sacred work</strong>.</p>
+    <blockquote class="about-pullquote rv rv-d3">&ldquo;Your website carries energy. Let&rsquo;s make it sacred.&rdquo;</blockquote>
+    <a href="#contact" class="text-link rv rv-d4">Begin the conversation &rarr;</a>
+  </div>
+</section>
+<section class="approach-section" id="approach">
+  <div class="section-header-center">
+    <div class="eyebrow rv">The Work</div>
+    <h2 class="section-h2 rv rv-d1">My Sacred <em>Design</em> Principles</h2>
+    <p class="section-sub rv rv-d2">My design philosophy weaves together energetic wisdom and visual craft &mdash; conscious creation in every form.</p>
+  </div>
+  <div class="principles-grid">
+    <div class="principle-card rv"><div class="p-num">01</div><div class="p-title">Building Portals, Not Just Pages</div><p class="p-body">I don&rsquo;t view a client&rsquo;s website as a static business card &mdash; I build it as the first room a visitor enters when they encounter a practitioner&rsquo;s work. I focus on clearing energetic leaks like broken links or cluttered layouts, ensuring the site is a clean, intentional sanctuary prepared to receive those who are seeking.</p></div>
+    <div class="principle-card rv rv-d1"><div class="p-num">02</div><div class="p-title">The 3-Second Rule of Presence</div><p class="p-body">A visitor&rsquo;s nervous system makes a decision long before the logical mind joins the conversation. I design homepages with the same care a healer uses to set a sacred space &mdash; ensuring color and balance allow a visitor to determine within three seconds whether they feel safe enough to stay.</p></div>
+    <div class="principle-card rv rv-d2"><div class="p-num">03</div><div class="p-title">Tuning the Vibration of Typography</div><p class="p-body">Words carry meaning, but fonts carry frequency. I avoid harsh, corporate fonts that create dissonance with gentle healing work &mdash; ensuring typography acts as a true extension of the client&rsquo;s practice: grounded, soft, and aligned with their specific energy.</p></div>
+    <div class="principle-card rv"><div class="p-num">04</div><div class="p-title">Creating Spaciousness for Integration</div><p class="p-body">In design, as in healing work, the silence is where the message is integrated. I prioritize white space because crowding a site blocks the movement of the offering. I give ideas room to breathe so visitors can do the same.</p></div>
+    <div class="principle-card rv rv-d1"><div class="p-num">05</div><div class="p-title">Utilizing Color as Transmission</div><p class="p-body">Color is a vibration that speaks directly to the subconscious. I choose a client&rsquo;s palette with the same intention they would use when choosing what to wear to a ceremony &mdash; ensuring shades reflect the energy they want clients to embody after a session.</p></div>
+    <div class="principle-card rv rv-d2"><div class="p-num">06</div><div class="p-title">Preserving Authenticity with Real Imagery</div><p class="p-body">Generic stock images can feel like synthetic crystals &mdash; visitors sense the lack of soul-signature immediately. I lean into using real photos of the practitioner, their space, and their tools to create resonance that cannot be manufactured.</p></div>
+    <div class="principle-card rv"><div class="p-num">07</div><div class="p-title">Channelling the Practitioner&rsquo;s True Voice</div><p class="p-body">A digital presence should be a direct reflection of the practitioner&rsquo;s spoken word. I write and edit copy to maintain the rhythm and honesty of a real conversation &mdash; allowing the website to serve as the client&rsquo;s voice when they aren&rsquo;t in the room.</p></div>
+    <div class="principle-card rv rv-d1"><div class="p-num">08</div><div class="p-title">Establishing Clarity to Foster Trust</div><p class="p-body">Confusion is a barrier to surrender, and trust is built on clarity. I ensure a visitor can immediately understand what the practitioner does and how to work with them. Simplifying the path to a booking link is a foundational act of support.</p></div>
+    <div class="principle-card rv rv-d2"><div class="p-num">09</div><div class="p-title">Designing for Discernment</div><p class="p-body">I build websites to be a filter, not a net. Instead of trying to appeal to everyone, I help the practitioner speak specifically to those they are meant to serve &mdash; allowing the wrong clients to self-select out and reserving the practitioner&rsquo;s energy for those truly aligned.</p></div>
+    <div class="principle-card rv"><div class="p-num">10</div><div class="p-title">Visibility as an Act of Devotion</div><p class="p-body">Tending to a digital space is an act of devotion to the mission. By keeping a site functional, beautiful, and aligned, I help ensure the practitioner remains energetically available &mdash; their light visible to those who need it most.</p></div>
+  </div>
+</section>
+<section class="portfolio-section" id="work">
+  <div class="section-header-split rv">
+    <div><div class="eyebrow">Selected Work</div><h2 class="section-h2" style="margin-top:14px">The <em>Portfolio</em></h2></div>
+    <a href="#contact" class="text-link">Start your project &rarr;</a>
+  </div>
+  <p class="portfolio-note rv">Featured sites open live &nbsp;&middot;&nbsp; Client demos open full-screen below</p>
+  <div class="sub-label rv">Featured &nbsp;&middot;&nbsp; Live Sites</div>
+  <div class="featured-grid">
+    <a class="feat-card rv" href="https://www.rosadiosa.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80" alt="Templo de la Diosa Rosa" onerror="this.style.opacity='0'"><div class="feat-overlay"><div class="feat-tag">Sacred Feminine &middot; Shamanic Healing &middot; Live Site</div><div class="feat-name">Templo de la<br>Diosa Rosa</div><div class="feat-cta">View Live Site &rarr;</div></div></a>
+    <a class="feat-card rv rv-d1" href="https://praypartyrepeat.vercel.app/index.html" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80" alt="Pray Party Repeat" onerror="this.style.opacity='0'"><div class="feat-overlay"><div class="feat-tag">Spiritual Community &middot; Editorial &middot; Live Site</div><div class="feat-name">Pray Party<br>Repeat</div><div class="feat-cta">View Live Site &rarr;</div></div></a>
+    <a class="feat-card rv rv-d2" href="https://supi-glow.vercel.app/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1559717865-a99cac1c95d8?w=800&q=80" alt="Supi Glow" onerror="this.style.opacity='0'"><div class="feat-overlay"><div class="feat-tag">Wellness &middot; Community Glow &middot; Live Site</div><div class="feat-name">Supi<br>Glow</div><div class="feat-cta">View Live Site &rarr;</div></div></a>
+  </div>
+  <div class="sub-label rv" style="margin-top:36px">Client Demos &nbsp;&middot;&nbsp; Click to Preview</div>
+  <div class="demo-grid">
+    <div class="demo-card rv" data-demo="asereiki.html" data-title="Ase Reiki"><img src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=700&q=80" alt="Ase Reiki" onerror="this.style.opacity='0'"><div class="demo-overlay"><div class="demo-sector">Reiki &middot; Energy Healing</div><div class="demo-name">Ase Reiki</div><div class="demo-cta">Preview Demo &rarr;</div></div></div>
+    <div class="demo-card rv rv-d1" data-demo="inoneheart.html" data-title="In One Heart"><img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=700&q=80" alt="In One Heart" onerror="this.style.opacity='0'"><div class="demo-overlay"><div class="demo-sector">Mystical &middot; Pilgrimage</div><div class="demo-name">In One Heart</div><div class="demo-cta">Preview Demo &rarr;</div></div></div>
+    <div class="demo-card rv rv-d2" data-demo="rain-walker-healing.html" data-title="Rain Walker Healing"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80" alt="Rain Walker Healing" onerror="this.style.opacity='0'"><div class="demo-overlay"><div class="demo-sector">Holistic Healing &middot; Wellness</div><div class="demo-name">Rain Walker Healing</div><div class="demo-cta">Preview Demo &rarr;</div></div></div>
+    <div class="demo-card rv rv-d3" data-demo="luminous-therapeutics.html" data-title="Luminous Therapeutics"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&q=80" alt="Luminous Therapeutics" onerror="this.style.opacity='0'"><div class="demo-overlay"><div class="demo-sector">Somatic &middot; Therapeutic</div><div class="demo-name">Luminous Therapeutics</div><div class="demo-cta">Preview Demo &rarr;</div></div></div>
+  </div>
+</section>
+<section class="testimonials-section">
+  <div class="section-header-center">
+    <div class="eyebrow rv" style="justify-content:center">Kind Words</div>
+    <h2 class="section-h2 rv rv-d1">From practitioners who <em>felt the difference.</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card rv"><div class="testi-quotemark">&ldquo;</div><p class="testi-quote">Will understood something I couldn&rsquo;t fully articulate &mdash; that my website needed to feel like my practice, not just describe it. What he built is a true extension of my healing space online.</p><div class="testi-attribution">&#10230; Reiki Practitioner &middot; Chicago, IL</div></div>
+    <div class="testi-card rv rv-d1"><div class="testi-quotemark">&ldquo;</div><p class="testi-quote">The first time I saw the design, I cried. It captured my energy perfectly. Within two weeks of launching, I had three new clients who said they chose me because of how my site felt.</p><div class="testi-attribution">&#10230; Somatic Coach &middot; Los Angeles, CA</div></div>
+    <div class="testi-card rv rv-d2"><div class="testi-quotemark">&ldquo;</div><p class="testi-quote">He doesn&rsquo;t just build websites. He holds the energetic space for your digital presence in a way I&rsquo;ve never experienced with any other designer. The result speaks for itself.</p><div class="testi-attribution">&#10230; Shamanic Guide &middot; Santa Fe, NM</div></div>
+  </div>
+</section>
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="eyebrow rv">Let&rsquo;s Talk</div>
+      <h2 class="contact-h2 rv rv-d1">Is your practice <em>visible</em> to those who need you?</h2>
+      <p class="contact-sub rv rv-d2">Your healing work is too important to be hidden behind a site that doesn&rsquo;t carry your energy. Fill out the form and I&rsquo;ll be back in touch within 24 hours.</p>
+      <div class="contact-details rv rv-d3">
+        <div class="cd-item"><span class="cd-label">Niche</span><span class="cd-value">Energy workers, healers, coaches, spiritual practitioners</span></div>
+        <div class="cd-item"><span class="cd-label">Response</span><span class="cd-value">Within 24 hours</span></div>
+        <div class="cd-item"><span class="cd-label">Starting at</span><span class="cd-value">$750 &middot; Free consultation available</span></div>
+        <div class="cd-item"><span class="cd-label">Approach</span><span class="cd-value">Energetically intentional &middot; No templates &middot; No shortcuts</span></div>
+      </div>
+    </div>
+    <div class="rv rv-d2">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <div class="cf-row">
+          <div class="cf-group"><label>First Name *</label><input type="text" name="firstName" placeholder="Your name" required></div>
+          <div class="cf-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Your last name" required></div>
+        </div>
+        <div class="cf-group"><label>Email *</label><input type="email" name="email" placeholder="you@yourpractice.com" required></div>
+        <div class="cf-group"><label>Your Practice / Modality</label><select name="practice"><option value="">Select your work&hellip;</option><option>Reiki / Energy Healing</option><option>Somatic Coaching</option><option>Shamanic Practice</option><option>Yoga / Movement</option><option>Sound Healing</option><option>Life Coaching</option><option>Breathwork</option><option>Plant Medicine Facilitation</option><option>Spiritual Mentorship</option><option>Other</option></select></div>
+        <div class="cf-group"><label>Estimated Budget</label><select name="budget"><option value="">Select range&hellip;</option><option>$750 &ndash; $1,500</option><option>$1,500 &ndash; $3,000</option><option>$3,000 &ndash; $5,000</option><option>$5,000+</option><option>Not sure yet</option></select></div>
+        <div class="cf-group"><label>Tell Me About Your Work *</label><textarea name="message" placeholder="What do you offer? What does your dream site feel like?" required></textarea></div>
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="New Inquiry &mdash; Design My Website Now">
+        <button type="submit" class="cf-submit" id="submitBtn">Send My Request &rarr;</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand-name">Design My Website Now<span>&middot;</span></div><p class="footer-tagline">Sacred, intentional web design for energy workers, healers, and spiritual practitioners. Your website is your portal.</p><a href="mailto:will@designmywebsitenow.com" class="footer-email">will@designmywebsitenow.com</a></div>
+    <div><div class="footer-col-title">Navigate</div><div class="footer-links"><a href="#work">The Work</a><a href="#approach">My Approach</a><a href="#about">About Will</a><a href="#contact">Book a Call</a></div></div>
+    <div><div class="footer-col-title">Connect</div><div class="footer-links"><a href="mailto:will@designmywebsitenow.com">Email Will</a><a href="#" target="_blank" rel="noopener">Instagram</a><a href="#" target="_blank" rel="noopener">Facebook</a><a href="https://designmywebsitenow.com" rel="noopener">designmywebsitenow.com</a></div></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 Design My Website Now &middot; Will Jones</span><span>Conscious Web Design &middot; Healing Arts &middot; Energy Workers</span></div>
+</footer>
+<div class="lightbox-backdrop" id="lightbox">
+  <div class="lightbox-window">
+    <div class="lightbox-topbar"><span class="lb-title" id="lbTitle">Demo Preview</span><div class="lb-actions"><a class="lb-open-link" id="lbOpenLink" href="#" target="_blank" rel="noopener">Open in new tab &#8599;</a><button class="lb-close" id="lbClose" aria-label="Close">&#10005;</button></div></div>
+    <iframe class="lightbox-iframe" id="lightboxFrame" src="" title="Demo site preview" loading="lazy"></iframe>
+  </div>
+</div>
+<script>
+const cD=document.getElementById('cursorDot'),cR=document.getElementById('cursorRing');let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cD.style.transform=`translate(${mx-4}px,${my-4}px)`;});
+(function aR(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cR.style.transform=`translate(${rx-18}px,${ry-18}px)`;requestAnimationFrame(aR);})();
+document.querySelectorAll('a,button,.feat-card,.demo-card').forEach(el=>{el.addEventListener('mouseenter',()=>{cD.classList.add('ring-hover');cR.classList.add('ring-hover');});el.addEventListener('mouseleave',()=>{cD.classList.remove('ring-hover');cR.classList.remove('ring-hover');});});
+const nav=document.getElementById('mainNav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60);},{passive:true});
+const hbg=document.getElementById('navHamburger'),mmenu=document.getElementById('mobileMenu');
+hbg.addEventListener('click',()=>{const o=hbg.classList.toggle('open');mmenu.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+mmenu.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hbg.classList.remove('open');mmenu.classList.remove('open');document.body.style.overflow='';});});
+window.addEventListener('load',()=>{const b=document.getElementById('heroBg');if(b)b.style.transform='scale(1)';});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const lb=document.getElementById('lightbox'),lbf=document.getElementById('lightboxFrame'),lbt=document.getElementById('lbTitle'),lbl=document.getElementById('lbOpenLink');
+function openLB(s,t){lbf.src=s;lbt.textContent=t;lbl.href=s;lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLB(){lb.classList.remove('open');document.body.style.overflow='';setTimeout(()=>{lbf.src='';},420);}
+document.getElementById('lbClose').addEventListener('click',closeLB);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
+document.querySelectorAll('.demo-card[data-demo]').forEach(c=>{c.addEventListener('click',()=>{openLB(c.dataset.demo,c.dataset.title);});});
+const form=document.getElementById('contactForm'),fMsg=document.getElementById('formMsg'),fBtn=document.getElementById('submitBtn');
+if(form){form.addEventListener('submit',async e=>{e.preventDefault();fBtn.textContent='Sending…';fBtn.disabled=true;try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(r.ok){fMsg.textContent="Your message arrived. I’ll be in touch within 24 hours.";form.reset();}else{fMsg.textContent='Something didn’t send. Please email will@designmywebsitenow.com directly.';}}catch{fMsg.textContent='Connection issue. Please email will@designmywebsitenow.com directly.';}fBtn.textContent='Send My Request →';fBtn.disabled=false;});}
+</script>
+</body>
+</html>
