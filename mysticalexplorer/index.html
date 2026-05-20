@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Michael Lee | Consciousness Researcher · Mystical Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,700&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --canvas:       #FAF8F5;
+      --canvas-alt:   #F0EBE5;
+      --dark:         #111010;
+      --dark-warm:    #1C1917;
+      --text:         #1A1714;
+      --text-muted:   #6D6560;
+      --accent:       #4A3FA0;
+      --accent-hover: #3A3290;
+      --accent-light: #EEEDF8;
+      --border:       #E2DDD8;
+      --white:        #FFFFFF;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-quote:   'Lora', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--canvas);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      transition: box-shadow 0.3s;
+    }
+
+    .nav-logo {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .nav-logo span {
+      font-weight: 400;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent-hover); }
+
+    /* ── HERO ────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: 92dvh;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      background: #1A1714;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .hero-image-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      background: linear-gradient(145deg, #2C2520 0%, #111010 100%);
+    }
+    .hero-image-fallback p {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #4A4440;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(3rem, 5vw, 5rem) clamp(2.5rem, 5vw, 5rem);
+      background: var(--canvas);
+      border-left: none;
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 44ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.8rem 1.75rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-ghost {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 0.8rem 1.75rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--text); }
+
+    .hero-stats {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat {}
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--text);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      display: block;
+    }
+
+    /* ── AS HEARD ON ─────────────────────────── */
+    .as-heard {
+      background: var(--dark-warm);
+      padding: 1.4rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      overflow-x: auto;
+    }
+    .as-heard-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #5A5450;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .as-heard-rule {
+      width: 1px;
+      height: 20px;
+      background: #333;
+      flex-shrink: 0;
+    }
+    .as-heard-items {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+    .as-heard-item {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #7A7470;
+      white-space: nowrap;
+    }
+    .sep { color: #3A3430; font-size: 0.6rem; }
+
+    /* ── SECTION COMMONS ─────────────────────── */
+    section {
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .section-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-bottom: 0.2rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .section-link:hover { border-color: var(--accent); }
+
+    /* ── FEATURED TALKS ──────────────────────── */
+    .talks { background: var(--white); }
+
+    .talks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .talk-card {
+      background: var(--canvas);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .talk-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.09);
+    }
+
+    .talk-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .talk-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .talk-card:hover .talk-thumb img { transform: scale(1.04); }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.28);
+      transition: background 0.22s;
+    }
+    .talk-card:hover .play-overlay { background: rgba(0,0,0,0.15); }
+
+    .play-btn {
+      width: 52px;
+      height: 52px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+    .talk-card:hover .play-btn { transform: scale(1.1); }
+    .play-btn::after {
+      content: '';
+      border-style: solid;
+      border-width: 8px 0 8px 15px;
+      border-color: transparent transparent transparent white;
+      margin-left: 3px;
+    }
+
+    .talk-thumb iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .talk-body {
+      padding: 1.2rem 1.5rem 1.4rem;
+    }
+    .talk-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+    .talk-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    /* ── FEATURED TALK (large) ───────────────── */
+    .talk-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+    }
+    .talk-card.featured .talk-thumb {
+      aspect-ratio: auto;
+      min-height: 300px;
+    }
+    .talk-card.featured .talk-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+    }
+    .talk-card.featured .talk-title {
+      font-size: 1.35rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .talk-card.featured .talk-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── ABOUT ───────────────────────────────── */
+    .about { background: var(--canvas); }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      aspect-ratio: 3/4;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--canvas-alt);
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .about-img-accent {
+      position: absolute;
+      bottom: -1.2rem;
+      right: -1.2rem;
+      width: 55%;
+      height: 55%;
+      border: 2.5px solid var(--accent);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .pullquote {
+      font-family: var(--font-quote);
+      font-style: italic;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      line-height: 1.6;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .about-bio {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      line-height: 1.82;
+      margin-bottom: 1rem;
+    }
+
+    /* ── RESEARCH AREAS ──────────────────────── */
+    .research { background: var(--dark); }
+    .research .section-title { color: var(--white); }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #252220;
+      border: 1px solid #252220;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .research-card {
+      background: var(--dark);
+      padding: 2.5rem 1.8rem;
+      transition: background 0.2s;
+    }
+    .research-card:hover { background: #1C1917; }
+
+    .research-sym {
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      display: block;
+      color: var(--accent);
+    }
+    .research-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.7rem;
+      line-height: 1.25;
+    }
+    .research-desc {
+      font-size: 0.85rem;
+      color: #857E79;
+      line-height: 1.65;
+    }
+
+    /* ── MEDIA APPEARANCES ───────────────────── */
+    .media { background: var(--canvas-alt); }
+
+    .media-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .media-card {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 1.75rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: border-color 0.22s, transform 0.22s;
+    }
+    .media-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+    .media-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      text-align: center;
+    }
+    .media-show {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .media-title {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .media-arrow {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    /* ── ITC STATION ─────────────────────────── */
+    .itc { background: var(--white); border-top: 1px solid var(--border); }
+
+    .itc-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-light);
+      border: 1px solid #C5C0E8;
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 1.6s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.25; }
+    }
+
+    .itc-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .itc-desc {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      line-height: 1.78;
+      max-width: 48ch;
+      margin-bottom: 2rem;
+    }
+
+    .itc-screen {
+      background: #0C0B0A;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #2A2522;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    }
+    .itc-screen-bar {
+      background: #181512;
+      padding: 0.55rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .wdot { width: 9px; height: 9px; border-radius: 50%; }
+    .itc-screen-body {
+      aspect-ratio: 16/10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+    }
+    .itc-live-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .itc-station-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .itc-station-url {
+      font-size: 0.7rem;
+      color: #555;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .itc-screen-scan {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(74,63,160,0.3), transparent);
+      animation: scan 3s linear infinite;
+    }
+    @keyframes scan {
+      from { top: 0; }
+      to   { top: 100%; }
+    }
+
+    /* ── CHANNEL CTA ─────────────────────────── */
+    .channel-cta {
+      background: var(--accent);
+      text-align: center;
+    }
+    .channel-cta .overline {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.2rem;
+    }
+    .channel-cta h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 2.2rem;
+      letter-spacing: -0.02em;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--accent);
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer {
+      background: var(--text);
+      padding: 4rem clamp(1.5rem, 5vw, 4rem) 2.5rem;
+      border-radius: 2.5rem 2.5rem 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+    .footer-logo {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .footer-tagline {
+      font-size: 0.84rem;
+      color: #7A7470;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 32ch;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 1.25rem;
+    }
+    .footer-socials a {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6A6460;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-socials a:hover { color: var(--white); }
+
+    .footer-col h4 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #4A4440;
+      margin-bottom: 1.25rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.75rem; }
+    .footer-col a {
+      font-size: 0.875rem;
+      color: #7A7470;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid #282422;
+      padding-top: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.76rem;
+      color: #4A4440;
+    }
+
+    /* ── SCROLL REVEAL ───────────────────────── */
+    .rv {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .rv.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-image { height: 56dvh; }
+      .hero-content { padding: 3rem 1.75rem; }
+
+      .talks-grid { grid-template-columns: 1fr; }
+      .talk-card.featured {
+        grid-template-columns: 1fr;
+      }
+      .talk-card.featured .talk-thumb {
+        aspect-ratio: 16/9;
+        min-height: auto;
+      }
+
+      .about-inner {
+        grid-template-columns: 1fr;
+      }
+      .about-img-wrap { aspect-ratio: 4/3; }
+      .about-img-accent { display: none; }
+
+      .research-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .itc-inner { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 540px) {
+      .research-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .media-card { grid-template-columns: auto 1fr; }
+      .media-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    Dr. Michael Lee
+    <span>Mystical Explorer</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#media">Appearances</a></li>
+    <li><a href="#itc">ITC Station</a></li>
+  </ul>
+  <a href="https://www.youtube.com/@mysticalexplorer1" target="_blank" class="nav-cta">Subscribe</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-image">
+    <img
+      src="Dr. Michael Lee.png"
+      alt="Dr. Michael Lee — Consciousness Researcher"
+      onerror="this.style.display='none';">
+    <div class="hero-image-fallback">
+      <p>Photo placeholder — swap with headshot</p>
+    </div>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">Consciousness Researcher · Scientist · Mystic</p>
+    <h1>Mapping the <em>territories</em> beyond physical reality</h1>
+    <p class="hero-bio">For over 25 years, Dr. Michael Lee has conducted first-hand research into astral projection, lucid dreaming, and communication with the spirit world — bridging rigorous scientific inquiry with direct mystical experience.</p>
+    <div class="hero-ctas">
+      <a href="#talks" class="btn-primary">Watch the Talks</a>
+      <a href="#about" class="btn-ghost">About the Research</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value">25+</span>
+        <span class="stat-label">Years of Research</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">100+</span>
+        <span class="stat-label">Video Talks</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">50+</span>
+        <span class="stat-label">Media Appearances</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── AS HEARD ON ───────────────────────────── -->
+<div class="as-heard">
+  <span class="as-heard-label">As Heard On</span>
+  <div class="as-heard-rule"></div>
+  <div class="as-heard-items">
+    <span class="as-heard-item">We Don't Die Radio</span>
+    <span class="sep">✦</span>
+    <span class="as-heard-item">Consciousness Studies Network</span>
+    <span class="sep">✦</span>
+    <span class="as-heard-item">Afterlife Research Forum</span>
+    <span class="sep">✦</span>
+    <span class="as-heard-item">ITC Web Station</span>
+    <span class="sep">✦</span>
+    <span class="as-heard-item">The Mystical Explorer Channel</span>
+  </div>
+</div>
+
+<!-- ── FEATURED TALKS ────────────────────────── -->
+<section class="talks" id="talks">
+  <div class="section-head rv">
+    <div>
+      <span class="section-label">Featured Talks</span>
+      <h2 class="section-title">Watch the Research Come Alive</h2>
+    </div>
+    <a href="https://www.youtube.com/@mysticalexplorer1" target="_blank" class="section-link">View all talks on YouTube →</a>
+  </div>
+
+  <div class="talks-grid">
+    <!-- Featured / large card -->
+    <div class="talk-card featured rv" onclick="playVideo(this, 'p3jVHX0I2cw')">
+      <div class="talk-thumb">
+        <img src="https://img.youtube.com/vi/p3jVHX0I2cw/maxresdefault.jpg" alt="He's Left His Body For 23 Years">
+        <div class="play-overlay"><div class="play-btn"></div></div>
+      </div>
+      <div class="talk-body">
+        <p class="talk-tag">Astral Projection · Featured</p>
+        <p class="talk-title">He's Left His Body For 23 Years… And He Finally Mapped It All</p>
+        <p class="talk-desc" style="margin-top:0.75rem;">A comprehensive account of two decades of out-of-body research — the planes encountered, the beings met, and the map that emerged from thousands of journeys into non-physical reality.</p>
+      </div>
+    </div>
+
+    <!-- Standard 2-up -->
+    <div class="talk-card rv" onclick="playVideo(this, 'x3Te__6vipg')">
+      <div class="talk-thumb">
+        <img src="https://img.youtube.com/vi/x3Te__6vipg/maxresdefault.jpg" alt="He's Left His Body Thousands of Times">
+        <div class="play-overlay"><div class="play-btn"></div></div>
+      </div>
+      <div class="talk-body">
+        <p class="talk-tag">Consciousness Mapping</p>
+        <p class="talk-title">He's Left His Body Thousands of Times… This Is The Map</p>
+      </div>
+    </div>
+
+    <div class="talk-card rv" onclick="playVideo(this, 'Ur4cvwoQoD4')">
+      <div class="talk-thumb">
+        <img src="https://img.youtube.com/vi/Ur4cvwoQoD4/maxresdefault.jpg" alt="Prison Planet Theory">
+        <div class="play-overlay"><div class="play-btn"></div></div>
+      </div>
+      <div class="talk-body">
+        <p class="talk-tag">Theory & Framework</p>
+        <p class="talk-title">Before You Try This Technique — Hear the Warning (Prison Planet Theory)</p>
+      </div>
+    </div>
+
+    <div class="talk-card rv" onclick="playVideo(this, 'lgta9Ym86I0')">
+      <div class="talk-thumb">
+        <img src="https://img.youtube.com/vi/lgta9Ym86I0/maxresdefault.jpg" alt="If You Want to Astral Project">
+        <div class="play-overlay"><div class="play-btn"></div></div>
+      </div>
+      <div class="talk-body">
+        <p class="talk-tag">Technique & Practice</p>
+        <p class="talk-title">If You Want to Astral Project or Any Mystical Experience — Watch This First</p>
+      </div>
+    </div>
+
+    <div class="talk-card rv" onclick="playVideo(this, 'X694o3uMmWo')">
+      <div class="talk-thumb">
+        <img src="https://img.youtube.com/vi/X694o3uMmWo/maxresdefault.jpg" alt="Astral Projection and the Spirit World">
+        <div class="play-overlay"><div class="play-btn"></div></div>
+      </div>
+      <div class="talk-body">
+        <p class="talk-tag">Podcast Interview</p>
+        <p class="talk-title">Astral Projection & the Spirit World: Exploring the Afterlife with Lucid Dreaming</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ─────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="rv" style="position:relative;">
+      <div class="about-img-wrap">
+        <img
+          src="Dr. Michael Lee.png"
+          alt="Dr. Michael Lee"
+          onerror="this.parentElement.style.background='#2C2520';">
+      </div>
+      <div class="about-img-accent"></div>
+    </div>
+    <div class="rv">
+      <span class="section-label">About Dr. Lee</span>
+      <blockquote class="pullquote">"My goal is to leave the world a legacy of understandings about the spirit world — gathered through 25 years of direct, first-hand experience."</blockquote>
+      <p class="about-bio">Dr. Michael Lee is a scientist and mystic who has dedicated over two decades to the rigorous exploration of non-physical reality. Since 2000, he has practiced astral projection, lucid dreaming, and out-of-body travel as primary research methodologies — logging thousands of journeys across different planes of consciousness.</p>
+      <p class="about-bio">His work spans solo exploration, guided soul retrievals, ITC (Instrumental TransCommunication) research, and systematic documentation of what he identifies as the spirit world. He is considered a bona fide expert in astral projection and afterlife exploration, sharing his findings through YouTube, podcast appearances, and the live ITC Web Station.</p>
+      <a href="http://mysticalexplorer.com" target="_blank" class="btn-ghost" style="margin-top:1.25rem;">Explore the Full Archive →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESEARCH AREAS ────────────────────────── -->
+<section class="research" id="research">
+  <div class="section-head rv">
+    <div>
+      <span class="section-label">Areas of Study</span>
+      <h2 class="section-title">The Research</h2>
+    </div>
+  </div>
+  <div class="research-grid">
+    <div class="research-card rv">
+      <span class="research-sym">✦</span>
+      <h3 class="research-name">Astral Projection</h3>
+      <p class="research-desc">Deliberate out-of-body travel to non-physical planes. Dr. Lee has logged thousands of journeys, developing reliable, repeatable exit techniques from over two decades of practice.</p>
+    </div>
+    <div class="research-card rv">
+      <span class="research-sym">◎</span>
+      <h3 class="research-name">Lucid Dreaming</h3>
+      <p class="research-desc">Conscious navigation of the dream state as a gateway to deeper consciousness research. Treated as a primary research instrument — not entertainment, but methodology.</p>
+    </div>
+    <div class="research-card rv">
+      <span class="research-sym">∿</span>
+      <h3 class="research-name">ITC Research</h3>
+      <p class="research-desc">Instrumental TransCommunication — using electronic and software-based methods to establish verifiable contact with non-physical intelligences and the afterlife.</p>
+    </div>
+    <div class="research-card rv">
+      <span class="research-sym">→</span>
+      <h3 class="research-name">Afterlife Mapping</h3>
+      <p class="research-desc">Systematic documentation of post-death states, soul groups, vibrational planes, and the mechanics of consciousness that persist beyond biological life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── MEDIA APPEARANCES ─────────────────────── -->
+<section class="media" id="media">
+  <div class="section-head rv">
+    <div>
+      <span class="section-label">Media & Appearances</span>
+      <h2 class="section-title">Heard Across Platforms</h2>
+    </div>
+  </div>
+  <div class="media-list">
+    <a href="https://www.iheart.com/podcast/53-we-dont-die-radio-27560860/episode/485-michael-lee-a-scientist-272374122/" target="_blank" class="media-card rv">
+      <span class="media-num">485</span>
+      <div>
+        <p class="media-show">We Don't Die Radio</p>
+        <p class="media-title">A Scientist Explores Astral Projection, Lucid Dreaming & the Spirit World</p>
+      </div>
+      <span class="media-arrow">→</span>
+    </a>
+    <div class="media-card rv">
+      <span class="media-num">∞</span>
+      <div>
+        <p class="media-show">Dr. Michael Lee, Mystical Explorer — YouTube Channel</p>
+        <p class="media-title">Original monologues, interviews, discussions, and field reports from 25 years of consciousness research</p>
+      </div>
+      <span class="media-arrow">→</span>
+    </div>
+    <div class="media-card rv">
+      <span class="media-num">01</span>
+      <div>
+        <p class="media-show">ITC Web Station — tvstation.mysticalexplorer.com</p>
+        <p class="media-title">Live and on-demand broadcasts covering spirit communication, ITC experiments, and consciousness research</p>
+      </div>
+      <span class="media-arrow">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── ITC STATION ───────────────────────────── -->
+<section class="itc" id="itc">
+  <div class="itc-inner">
+    <div class="rv">
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        Live Station
+      </div>
+      <h2 class="itc-title">The ITC Web Station</h2>
+      <p class="itc-desc">A dedicated broadcast platform for live and recorded Instrumental TransCommunication experiments. Tune in to witness real-time spirit communication research — one of the only active stations of its kind anywhere in the world.</p>
+      <a href="http://tvstation.mysticalexplorer.com/" target="_blank" class="btn-primary">Tune In to the Station →</a>
+    </div>
+    <div class="rv">
+      <div class="itc-screen">
+        <div class="itc-screen-bar">
+          <div class="wdot" style="background:#FF5F56;"></div>
+          <div class="wdot" style="background:#FFBD2E;"></div>
+          <div class="wdot" style="background:#27C93F;"></div>
+        </div>
+        <div class="itc-screen-body" style="position:relative; overflow:hidden;">
+          <div class="itc-screen-scan"></div>
+          <div class="itc-live-indicator">
+            <span class="live-dot" style="width:10px;height:10px;"></span>
+            <span style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:#555;font-family:monospace;">LIVE</span>
+          </div>
+          <p class="itc-station-title">Mystical Explorer TV</p>
+          <p class="itc-station-url">tvstation.mysticalexplorer.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CHANNEL CTA ───────────────────────────── -->
+<section class="channel-cta">
+  <p class="overline rv">25 Years of First-Hand Research · 100+ Talks</p>
+  <h2 class="rv">Join the exploration<br>on YouTube</h2>
+  <a href="https://www.youtube.com/@mysticalexplorer1" target="_blank" class="btn-white rv">Subscribe on YouTube</a>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────── -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <p class="footer-logo">Dr. Michael Lee</p>
+      <p class="footer-tagline">Scientist · Mystic · Explorer of Consciousness.<br>25 years mapping the territories beyond physical reality.</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@mysticalexplorer1" target="_blank">YouTube</a>
+        <a href="https://www.facebook.com/drmichaellee/" target="_blank">Facebook</a>
+        <a href="http://mysticalexplorer.com" target="_blank">Website</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#talks">Featured Talks</a></li>
+        <li><a href="#about">About Dr. Lee</a></li>
+        <li><a href="#research">Research Areas</a></li>
+        <li><a href="#media">Appearances</a></li>
+        <li><a href="#itc">ITC Station</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.youtube.com/@mysticalexplorer1" target="_blank">YouTube Channel</a></li>
+        <li><a href="http://tvstation.mysticalexplorer.com/" target="_blank">ITC Web Station</a></li>
+        <li><a href="http://mysticalexplorer.com" target="_blank">mysticalexplorer.com</a></li>
+        <li><a href="https://www.facebook.com/drmichaellee/" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Dr. Michael Lee — Mystical Explorer. All rights reserved.</p>
+    <p class="footer-copy">Consciousness Research · Astral Projection · ITC</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+  // Click-to-play video cards
+  function playVideo(card, id) {
+    const thumb = card.querySelector('.talk-thumb');
+    thumb.innerHTML = `<iframe
+      src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1"
+      allow="autoplay; encrypted-media; fullscreen"
+      allowfullscreen
+      loading="lazy">
+    </iframe>`;
+  }
+
+  // Nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 8
+      ? '0 1px 24px rgba(0,0,0,0.08)'
+      : 'none';
+  }, { passive: true });
+</script>
+</body>
+</html>
